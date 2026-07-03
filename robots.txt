@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# AI/検索クローラーを明示的に歓迎
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+
+Sitemap: https://koseai.github.io/inyo-studio/sitemap.xml

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AIに引用されるLPのAEO対策｜具体的に何をすればいいか（実装チェックリスト）| Inyo Studio</title>
+<meta name="description" content="AIに引用されるようにLP（ランディングページ）をAEO対策するには、具体的に何をすればいいか。構造・書き方・被引用の3層で、最初の1週間でやることまで実装チェックリスト付きで解説。">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:title" content="AIに引用されるLPのAEO対策｜具体的に何をすればいいか">
+<meta property="og:description" content="AI検索でLPが引用されるための具体策を、構造・書き方・被引用の3層＋実装チェックリストで。">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Inyo Studio">
+<link rel="canonical" href="https://koseai.github.io/inyo-studio/aeo-lp-taisaku/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link rel="stylesheet" href="../style.css">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"Article",
+      "headline":"AIに引用されるLPのAEO対策｜具体的に何をすればいいか",
+      "description":"AIに引用されるようにLPをAEO対策する具体策を、構造・書き方・被引用の3層で解説する実装ガイド。",
+      "inLanguage":"ja",
+      "datePublished":"2026-07-03",
+      "dateModified":"2026-07-03",
+      "author":{"@type":"Organization","name":"Inyo Studio","url":"https://koseai.github.io/inyo-studio/"},
+      "publisher":{"@type":"Organization","name":"Inyo Studio"},
+      "mainEntityOfPage":"https://koseai.github.io/inyo-studio/aeo-lp-taisaku/"},
+    {"@type":"HowTo",
+      "name":"AIに引用されるようにLPをAEO対策する手順",
+      "description":"ランディングページをAI検索エンジンに引用されやすくするための実装手順。",
+      "step":[
+        {"@type":"HowToStep","position":1,"name":"結論ファーストで書く","text":"各見出しの直下に、質問への答えを40〜80字で先に置く。AIは冒頭の要約を抜き出して引用するため。"},
+        {"@type":"HowToStep","position":2,"name":"見出しをユーザーの質問文にする","text":"「特徴」ではなく「AEO対策とは何か？」のように、実際に検索される質問形で見出しを立てる。"},
+        {"@type":"HowToStep","position":3,"name":"構造化データ(schema.org)を実装する","text":"Article・FAQPage・HowTo・Organizationのマークアップを入れ、AIが内容と発信元を機械的に理解できるようにする。"},
+        {"@type":"HowToStep","position":4,"name":"llms.txtを設置する","text":"サイトルートにllms.txtを置き、AIに読ませたい要点ページを明示する。"},
+        {"@type":"HowToStep","position":5,"name":"独自の一次データを載せる","text":"実測値・独自調査など、他にない数字を載せる。AIは固有で検証可能な情報を優先的に引用する。"},
+        {"@type":"HowToStep","position":6,"name":"外部からの被引用を積む","text":"比較記事・レビュー・ディレクトリなど第三者サイトでの言及を増やす。AIは複数ソースで裏が取れる主体を推薦しやすい。"}
+      ]},
+    {"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"AEO対策はSEOと何が違いますか？","acceptedAnswer":{"@type":"Answer","text":"SEOは検索結果ページで上位に表示させる対策、AEOはAIが生成する回答の中で自社を引用・推薦させる対策です。SEOは順位、AEOは回答内の出現率と被引用が指標になります。"}},
+      {"@type":"Question","name":"AEO対策はどれくらいで効果が出ますか？","acceptedAnswer":{"@type":"Answer","text":"サイト内の構造・書き方の改善は数週間で反映され始めます。外部からの被引用は数ヶ月かかります。まず自サイトで抜き出されやすい状態を作るのが最短です。"}},
+      {"@type":"Question","name":"AEO対策は自分でできますか？","acceptedAnswer":{"@type":"Answer","text":"結論ファーストの書き方や見出しの質問文化は自分でも可能です。構造化データの実装や被引用の設計は専門知識が要るため、診断で穴を特定してから着手すると失敗しにくいです。"}}
+    ]},
+    {"@type":"BreadcrumbList","itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Inyo Studio","item":"https://koseai.github.io/inyo-studio/"},
+      {"@type":"ListItem","position":2,"name":"AIに引用されるLPのAEO対策","item":"https://koseai.github.io/inyo-studio/aeo-lp-taisaku/"}
+    ]}
+  ]
+}
+</script>
+<style>
+/* このページ限定の軽い追加（本体は style.css を継承） */
+.guide-wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.answer-box{background:#F6F9FC;border:1px solid #e3e9f2;border-left:4px solid #635BFF;border-radius:14px;padding:22px 24px;margin:28px 0}
+.answer-box .lbl{font-size:.72rem;letter-spacing:.14em;color:#635BFF;font-weight:700;text-transform:uppercase}
+.answer-box p{margin:.5em 0 0;font-size:1.02rem;line-height:1.85}
+.guide h2{font-size:1.5rem;letter-spacing:-.01em;margin:2.4em 0 .3em;line-height:1.4}
+.guide h3{font-size:1.12rem;margin:1.6em 0 .3em;color:#0A2540}
+.guide p,.guide li{line-height:1.9;color:#334155}
+.lead-def{font-size:.86rem;color:#64748b;margin-top:.4em}
+.layer{border:1px solid #e6ebf3;border-radius:14px;padding:6px 22px 18px;margin:18px 0;background:#fff}
+.layer .tagn{display:inline-block;font-size:.72rem;font-weight:700;color:#635BFF;background:#efeeff;border-radius:999px;padding:3px 12px;margin:16px 0 0}
+.check{list-style:none;padding:0;margin:.6em 0}
+.check li{position:relative;padding:.35em 0 .35em 1.9em}
+.check li::before{content:"✓";position:absolute;left:0;top:.35em;color:#00875a;font-weight:800}
+.meta-upd{font-size:.8rem;color:#94a3b8;margin-top:8px}
+.crumbs{font-size:.82rem;color:#94a3b8;margin:0}
+.crumbs a{color:#635BFF;text-decoration:none}
+.guide-cta{background:linear-gradient(135deg,#0A2540,#123a63);color:#fff;border-radius:18px;padding:34px 30px;margin:44px 0 10px;text-align:center}
+.guide-cta h2{color:#fff;margin:.1em 0 .5em}
+.guide-cta p{color:#c9d6e5;margin:0 0 18px}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a href="../" class="logo">Inyo <span>Studio</span></a>
+    <a href="../#cta" class="btn btn-sm">無料診断を申し込む</a>
+  </div>
+</header>
+
+<main class="guide">
+<article class="sec">
+  <div class="guide-wrap">
+    <p class="crumbs"><a href="../">Inyo Studio</a> ／ AIに引用されるLPのAEO対策</p>
+    <span class="eyebrow" style="margin-top:14px;display:inline-block">AEO 実装ガイド</span>
+    <h1 style="font-size:2rem;line-height:1.35;letter-spacing:-.02em;margin:.2em 0 .1em">AIに引用されるLPのAEO対策<br>具体的に、何をすればいいか</h1>
+    <p class="meta-upd">最終更新：2026年7月3日 ／ Inyo Studio（AI検索の被引用を毎週実測）</p>
+
+    <!-- 結論ファースト：AIが抜き出す要約ブロック -->
+    <div class="answer-box">
+      <span class="lbl">結論</span>
+      <p>AIに引用されるためのLPのAEO対策は、<strong>①AIが抜き出しやすい「構造」／②質問に一文で答える「書き方」／③他サイトから引用される「被引用」</strong>の3層で決まります。最優先は<strong>自サイトの構造と書き方</strong>（数週間で反映）。被引用は時間がかかるため後追いで積みます。以下に、最初の1週間でやることまで具体化します。</p>
+    </div>
+
+    <h2>そもそもAEO（AI検索最適化）とは？</h2>
+    <p><strong>AEO（Answer Engine Optimization）とは、ChatGPT・Gemini・Perplexityなどが生成する「回答」の中で、自社を引用・推薦させるための最適化</strong>です。検索結果の順位を競うSEOに対し、AEOは<strong>AIの回答内での出現率と被引用</strong>を指標にします。ユーザーが検索結果を見ずAIの答えだけで判断する時代には、「AIに名指しされるかどうか」がLPの成果を左右します。</p>
+
+    <h2>具体的にやること：3層＋チェックリスト</h2>
+
+    <div class="layer">
+      <span class="tagn">第1層：構造（オンサイト・すぐできる・効果が速い）</span>
+      <h3>AIが機械的に抜き出せる形にする</h3>
+      <p>新規・無名のサイトほど、AIが参照できるのは「自サイト」だけ。ここが最も効きます。</p>
+      <ul class="check">
+        <li><strong>結論ファースト</strong>：各見出しの直下に、答えを40〜80字で先出しする（AIは冒頭要約を引用する）</li>
+        <li><strong>見出しを質問文に</strong>：「特徴」ではなく「AEO対策とは何か？」の形にする</li>
+        <li><strong>構造化データ（schema.org）</strong>：Article／FAQPage／HowTo／Organization を実装し、内容と発信元を機械可読にする</li>
+        <li><strong>llms.txt を設置</strong>：サイトルートに置き、読ませたい要点ページを明示する</li>
+        <li><strong>エンティティ明確化</strong>：運営者・専門分野を Person/Organization で宣言し、「誰が言っているか」を確定させる</li>
+        <li><strong>表・箇条書き・定義ブロック</strong>：長文より、抜き出しやすい構造化された断片にする</li>
+      </ul>
+    </div>
+
+    <div class="layer">
+      <span class="tagn">第2層：独自性（引用したくなる中身）</span>
+      <h3>「そこにしかない情報」を置く</h3>
+      <ul class="check">
+        <li><strong>一次データ・独自の実測値</strong>を載せる（AIは固有で検証可能な数字を優先して引用する）</li>
+        <li><strong>比較・ランキング形式</strong>にする（回答生成時に構造ごと引用されやすい）</li>
+        <li><strong>最終更新日を明記</strong>する（新しさは引用可否に効く）</li>
+      </ul>
+    </div>
+
+    <div class="layer">
+      <span class="tagn">第3層：被引用（オフサイト・時間がかかる）</span>
+      <h3>第三者に語られる主体になる</h3>
+      <ul class="check">
+        <li><strong>比較記事・レビュー・ディレクトリ</strong>への掲載を増やす</li>
+        <li><strong>名称の一貫性・sameAs</strong>で名寄せし、AIに同一主体だと認識させる</li>
+        <li>AIは<strong>複数ソースで裏が取れる主体</strong>を推薦しやすい</li>
+      </ul>
+    </div>
+
+    <h2>最初の1週間で、何を優先するか</h2>
+    <p>全部を一度にやる必要はありません。<strong>効果が速く自分で着手できる第1層から</strong>着手します。</p>
+    <ol>
+      <li><strong>1日目</strong>：狙う質問を1つ決め、その答えを結論ファーストで書く専用ページを作る</li>
+      <li><strong>2〜3日目</strong>：見出しを質問文化し、FAQ／HowTo の構造化データを実装、llms.txt を設置</li>
+      <li><strong>4日目</strong>：独自データ（実測値など）を1つ載せる</li>
+      <li><strong>その後</strong>：AI各社に同じ質問を繰り返し投げ、自ページが引用され始めるかを実測する</li>
+    </ol>
+
+    <h2>よくある質問</h2>
+    <h3>AEO対策はSEOと何が違う？</h3>
+    <p>SEOは検索結果ページで上位表示させる対策、<strong>AEOはAIの回答内で自社を引用・推薦させる対策</strong>です。SEOは順位、AEOは回答内の出現率と被引用が指標になります。</p>
+    <h3>どれくらいで効果が出る？</h3>
+    <p>サイト内の構造・書き方の改善は<strong>数週間</strong>で反映され始めます。外部からの被引用は数ヶ月。まず自サイトで抜き出されやすい状態を作るのが最短です。</p>
+    <h3>自分でできる？</h3>
+    <p>結論ファーストの書き方や見出しの質問文化は自分でも可能です。<strong>構造化データの実装や被引用の設計は専門知識が要る</strong>ため、診断で穴を特定してから着手すると失敗しにくいです。</p>
+
+    <div class="guide-cta">
+      <h2>自社のLPが、AIにどう見られているか測りませんか？</h2>
+      <p>主要AIに繰り返し質問し、自社の出現率・被引用を実測。穴を1枚のレポートにします。</p>
+      <a href="../#cta" class="btn">無料でAEO+CRO診断を受ける →</a>
+    </div>
+    <p class="lead-def">運営：Inyo Studio ／ 広告を出して伸び悩む事業者向けに、CVR改善とAI検索対応(AEO)に特化したLPをオリジナル制作。このガイドのページ自体も、上記のAEO対策を実装して作っています。</p>
+  </div>
+</article>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span class="logo">Inyo <span>Studio</span></span>
+    <p>AEO実証ラボ Inyo が運営する、CVR改善に特化したLP制作サービス。</p>
+  </div>
+</footer>
+
+<a href="../#cta" class="float-cta">無料診断を申し込む</a>
+</body>
+</html>
