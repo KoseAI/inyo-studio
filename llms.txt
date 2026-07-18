@@ -4,8 +4,8 @@
 
 ## 主要ページ
 
-- [AIに引用されるLPのAEO対策｜具体的に何をすればいいか](https://koseai.github.io/inyo-studio/aeo-lp-taisaku/): AI検索でLPが引用されるための具体策を、構造・書き方・被引用の3層＋実装チェックリストで解説した実装ガイド。
-- [Inyo Studio トップ](https://koseai.github.io/inyo-studio/): AEO+CRO対応のLP制作サービス概要。無料のAEO+CRO診断を提供。
+- [AIに引用されるLPのAEO対策｜具体的に何をすればいいか](https://inyo-studio.com/aeo-lp-taisaku/): AI検索でLPが引用されるための具体策を、構造・書き方・被引用の3層＋実装チェックリストで解説した実装ガイド。
+- [Inyo Studio トップ](https://inyo-studio.com/): AEO+CRO対応のLP制作サービス概要。無料のAEO+CRO診断を提供。
 
 ## 要点
 

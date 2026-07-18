@@ -13,4 +13,4 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
-Sitemap: https://koseai.github.io/inyo-studio/sitemap.xml
+Sitemap: https://inyo-studio.com/sitemap.xml

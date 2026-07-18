@@ -10,7 +10,9 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Inyo Studio">
 <meta name="twitter:card" content="summary_large_image">
-<!-- TODO（公開時）: 独自ドメイン確定後に canonical / og:url / og:image(1200x630) / favicon を追加 -->
+<link rel="canonical" href="https://inyo-studio.com/">
+<meta property="og:url" content="https://inyo-studio.com/">
+<!-- TODO: og:image(1200x630) を作成して追加（twitter:card=summary_large_image 用） -->
 <meta name="robots" content="index,follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -363,8 +365,7 @@
     <form class="form" action="https://formspree.io/f/REPLACE_ME" method="POST">
       <!-- TODO（公開ブロッカー）: REPLACE_ME を実Formspree IDに置換。_next にサンクスページURLを設定しCV計測する -->
       <input type="hidden" name="_subject" value="【Inyo】無料AEO+CRO診断の申し込み">
-      <!-- TODO（公開時）: 独自ドメイン確定後に下のYOUR-DOMAINを実URLに置換（例 https://inyo-studio.com/thanks.html） -->
-      <input type="hidden" name="_next" value="https://YOUR-DOMAIN/thanks.html">
+      <input type="hidden" name="_next" value="https://inyo-studio.com/thanks.html">
       <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden">
       <label>お名前 / 会社名<input type="text" name="name" required placeholder="例：山田太郎 / 株式会社〇〇"></label>
       <label>メールアドレス<input type="email" name="email" required placeholder="you@example.com"></label>
